@@ -26,13 +26,12 @@ public class FUNCTIONS {
             if(request_parameters.length > 0){
                 post_data += "&";
             }
-            for(int array_index = 0; array_index < request_parameters.length; array_index++) {
+            for(int array_index = 0; array_index < request_parameters.length; array_index += 2) {
                 String post_element = request_parameters[array_index];
-                String[] post_data_array = post_element.split("=");
                 if(array_index == 0){
-                    post_data += URLEncoder.encode(post_data_array[0], "UTF-8") + "=" + URLEncoder.encode(post_data_array[1], "UTF-8");
+                    post_data += URLEncoder.encode(request_parameters[array_index], "UTF-8") + "=" + URLEncoder.encode(request_parameters[array_index + 1], "UTF-8");
                 }else{
-                    post_data += "&" + URLEncoder.encode(post_data_array[0], "UTF-8") + "=" + URLEncoder.encode(post_data_array[1], "UTF-8");
+                    post_data += "&" + URLEncoder.encode(request_parameters[array_index], "UTF-8") + "=" + URLEncoder.encode(request_parameters[array_index + 1], "UTF-8");
                 }
             }
             

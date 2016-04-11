@@ -13,6 +13,7 @@ package IST_411_GIT;
 public class main {
     public static void main(String[] args) {
         get_restaurants();
+        System.out.println("-----------------------------------------------------");
         get_restaurants_with_criteria();
     }
     
@@ -25,6 +26,7 @@ public class main {
             System.out.println("Name: " + restaurant_information[1]);
             System.out.println("Phone Number: " + restaurant_information[2]);
             System.out.println("");
+            
         }
     }
     

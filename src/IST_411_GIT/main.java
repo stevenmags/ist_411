@@ -5,12 +5,21 @@
  */
 package IST_411_GIT;
 
+
 /**
  *
  * @author Steven
  */
 public class main {
     public static void main(String[] args) {
-        System.out.println("test");
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1000");
+        String[] restaurants = restaurant_result.split("\\|\\|");
+        for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
+            String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
+            System.out.println("ID: " + restaurant_information[0]);
+            System.out.println("Name: " + restaurant_information[1]);
+            System.out.println("Phone Number: " + restaurant_information[2]);
+            System.out.println("");
+        }
     }
 }

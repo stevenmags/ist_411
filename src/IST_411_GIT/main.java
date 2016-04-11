@@ -12,7 +12,7 @@ package IST_411_GIT;
  */
 public class main {
     public static void main(String[] args) {
-        //get_restaurants();
+        get_restaurants();
         get_restaurants_with_criteria();
     }
     

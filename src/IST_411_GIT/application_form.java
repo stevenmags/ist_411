@@ -16,6 +16,7 @@ public class application_form extends javax.swing.JFrame {
      */
     public application_form() {
         initComponents();
+        this.setSize(350, 550);
     }
 
     /**

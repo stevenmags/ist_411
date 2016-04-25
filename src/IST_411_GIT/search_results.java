@@ -84,13 +84,50 @@ public class search_results extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new search_results().setVisible(true);
+                 get_restaurants();
+                 System.out.println("-----------------------------------------------------");
+                 get_restaurants_with_criteria();
             }
         });
+    }
+    
+    public static void get_restaurants(){
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1000");
+        String[] restaurants = restaurant_result.split("%\\|%");
+        for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
+            String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
+            System.out.println("ID: " + restaurant_information[0]);
+            System.out.println("Name: " + restaurant_information[1]);
+            System.out.println("Phone Number: " + restaurant_information[2]);
+            System.out.println("Address Line 1: " + restaurant_information[3]);
+            System.out.println("Address Line 2: " + restaurant_information[4]);
+            System.out.println("City: " + restaurant_information[5]);
+            System.out.println("State: " + restaurant_information[6]);
+            System.out.println("ZipCode: " + restaurant_information[7]);
+            System.out.println("");
+            
+        }
+    }
+    
+    public static void get_restaurants_with_criteria(){
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "search_criteria", "Restaurant_Name='Subway' AND Phone='1112223333'");
+        String[] restaurants = restaurant_result.split("%\\|%");
+        for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
+            String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
+            System.out.println("ID: " + restaurant_information[0]);
+            System.out.println("Name: " + restaurant_information[1]);
+            System.out.println("Phone Number: " + restaurant_information[2]);
+            System.out.println("Address Line 1: " + restaurant_information[3]);
+            System.out.println("Address Line 2: " + restaurant_information[4]);
+            System.out.println("City: " + restaurant_information[5]);
+            System.out.println("State: " + restaurant_information[6]);
+            System.out.println("ZipCode: " + restaurant_information[7]);
+            System.out.println("");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

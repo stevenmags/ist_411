@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package IST_411_GIT;
 
 /**
@@ -25,21 +20,95 @@ public class main extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
+        jtfNameToSearch = new javax.swing.JTextField();
+        jlbName = new javax.swing.JLabel();
+        jbtNameSearch = new javax.swing.JButton();
+        jbtAddRestaurantName = new javax.swing.JButton();
+        jbtAdvancedSearch = new javax.swing.JButton();
+        jlbAppName = new javax.swing.JLabel();
+        jlbRestaurant = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jlbName.setText("Name:");
+
+        jbtNameSearch.setText("Search");
+        jbtNameSearch.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jbtNameSearchActionPerformed(evt);
+            }
+        });
+
+        jbtAddRestaurantName.setText("Add Restaurant");
+        jbtAddRestaurantName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jbtAddRestaurantNameActionPerformed(evt);
+            }
+        });
+
+        jbtAdvancedSearch.setText("Adv Search...");
+        jbtAdvancedSearch.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jbtAdvancedSearchActionPerformed(evt);
+            }
+        });
+
+        jlbAppName.setText("Restaurant Wait Time App");
+
+        jlbRestaurant.setText("Restaurant");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jbtAddRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jbtAdvancedSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jlbName)
+                            .addGap(27, 27, 27)
+                            .addComponent(jtfNameToSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jbtNameSearch))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(82, 82, 82)
+                            .addComponent(jlbAppName))
+                        .addComponent(jlbRestaurant)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbAppName)
+                .addGap(18, 18, 18)
+                .addComponent(jlbRestaurant)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbName)
+                    .addComponent(jtfNameToSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtNameSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtAddRestaurantName)
+                    .addComponent(jbtAdvancedSearch))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -55,6 +124,28 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtNameSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtNameSearchActionPerformed
+    {//GEN-HEADEREND:event_jbtNameSearchActionPerformed
+        search_results results = new search_results();
+        results.get_restaurants( jtfNameToSearch.getText() );    
+        results.setVisible(true);
+        this.dispose(); 
+    }//GEN-LAST:event_jbtNameSearchActionPerformed
+
+    private void jbtAddRestaurantNameActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtAddRestaurantNameActionPerformed
+    {//GEN-HEADEREND:event_jbtAddRestaurantNameActionPerformed
+        add_restaurant_information addRestaurant = new add_restaurant_information();
+        addRestaurant.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtAddRestaurantNameActionPerformed
+
+    private void jbtAdvancedSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtAdvancedSearchActionPerformed
+    {//GEN-HEADEREND:event_jbtAdvancedSearchActionPerformed
+        AdvancedSearch AdvSearch = new AdvancedSearch();
+        AdvSearch.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtAdvancedSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,8 +182,17 @@ public class main extends javax.swing.JFrame {
             }
         });
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbtAddRestaurantName;
+    private javax.swing.JButton jbtAdvancedSearch;
+    private javax.swing.JButton jbtNameSearch;
+    private javax.swing.JLabel jlbAppName;
+    private javax.swing.JLabel jlbName;
+    private javax.swing.JLabel jlbRestaurant;
+    private javax.swing.JTextField jtfNameToSearch;
     // End of variables declaration//GEN-END:variables
 }

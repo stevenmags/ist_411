@@ -163,8 +163,31 @@ public class search_results extends javax.swing.JFrame {
     public void get_restaurants_with_criteria(String in_name, String in_location, String in_category, int in_wait, int in_party ){
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", in_name,"ZipCode",in_location,"Category",in_category,"Wait_Time",in_wait+"","Party_Size",in_party+"");
         String[] restaurants = restaurant_result.split("%\\|%");
+        int num = 100;
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
+            JPanel temp = new JPanel();
+            
+            JLabel id = new JLabel(restaurant_information[0]);
+            JLabel name = new JLabel(restaurant_information[1]);
+            JLabel phone_number = new JLabel(restaurant_information[2]);
+            JLabel address_line_1 = new JLabel(restaurant_information[3]);
+            JLabel address_line_2 = new JLabel(restaurant_information[4]);
+            JLabel city = new JLabel(restaurant_information[5]);
+            JLabel state = new JLabel(restaurant_information[6]);
+            JLabel zipcode = new JLabel(restaurant_information[7]);
+            temp.setSize(100, 100);
+            temp.add(id);
+            temp.add(name);
+            temp.add(phone_number);
+            temp.add(address_line_1);
+            temp.add(address_line_2);
+            temp.add(city);
+            temp.add(state);
+            temp.add(zipcode);
+            temp.setLocation(0, num );
+            num=num+num;
+            jspRest.setViewportView(temp);
             
             System.out.println("ID: " + restaurant_information[0]);
             System.out.println("Name: " + restaurant_information[1]);

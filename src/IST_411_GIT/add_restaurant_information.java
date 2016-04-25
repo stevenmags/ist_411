@@ -5,19 +5,50 @@
  */
 package IST_411_GIT;
 
+import java.awt.Frame;
+
 /**
  *
  * @author Steven
  */
 public class add_restaurant_information extends javax.swing.JFrame {
-
     /**
      * Creates new form add_restaurant_information1
      */
     public add_restaurant_information() {
         initComponents();
+        setStates();
+        setCategories();
+        
     }
+    private String strState;
+    private String strCategory;
+    //Puts local state abbreviation values into States Combobox
+    private void setStates()
+    {
+        String[] aryStates = {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
+                                    "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
+                                    "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
+                                    "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
+        for (String strAdd: aryStates)
+        {
+            jcbStates.addItem(strAdd);
+        }
+    }
+    //Puts food category values from the database into the categories Combobox.
+    private void setCategories()
+    {
+        String categories_result = FUNCTIONS.INTERFACE_REQUEST("1400");
+        String[] categories = categories_result.split("%\\|%");
+        for(int rcategory_counter = 0; rcategory_counter < categories.length; rcategory_counter++){
+            String[] category_information = categories[rcategory_counter].split("\\|");
+            
+            jcbCategories.addItem (category_information[1]);
+        }
 
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,16 +58,14 @@ public class add_restaurant_information extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jtfRestarauntPhone = new javax.swing.JTextField();
+        jtfPhone = new javax.swing.JTextField();
         jlAddress2 = new javax.swing.JLabel();
         jlPhone = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListFoodCategories = new javax.swing.JList();
         jtfAddressLine1 = new javax.swing.JTextField();
         jtfCity = new javax.swing.JTextField();
         jlFoodCategories = new javax.swing.JLabel();
         jtfZip = new javax.swing.JTextField();
-        jcbState = new javax.swing.JComboBox();
+        jcbStates = new javax.swing.JComboBox();
         jlAddress1 = new javax.swing.JLabel();
         jlCity = new javax.swing.JLabel();
         jlZip = new javax.swing.JLabel();
@@ -44,6 +73,8 @@ public class add_restaurant_information extends javax.swing.JFrame {
         jlState = new javax.swing.JLabel();
         jlRestaurantName = new javax.swing.JLabel();
         jtfAddressLine2 = new javax.swing.JTextField();
+        jbAddRestaraunt = new javax.swing.JButton();
+        jcbCategories = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,16 +82,13 @@ public class add_restaurant_information extends javax.swing.JFrame {
 
         jlPhone.setText("Phone:");
 
-        jListFoodCategories.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jListFoodCategories);
-
         jlFoodCategories.setText("Food Categories");
 
-        jcbState.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbStates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbStatesActionPerformed(evt);
+            }
+        });
 
         jlAddress1.setText("Address Line 1:");
 
@@ -70,7 +98,14 @@ public class add_restaurant_information extends javax.swing.JFrame {
 
         jlState.setText("State:");
 
-        jlRestaurantName.setText("Restaraunt Name:");
+        jlRestaurantName.setText("Restaurant Name:");
+
+        jbAddRestaraunt.setText("Add Restaurant");
+        jbAddRestaraunt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddRestarauntActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,38 +115,41 @@ public class add_restaurant_information extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlRestaurantName)
-                            .addComponent(jlPhone)
-                            .addComponent(jlAddress1)
-                            .addComponent(jlAddress2)
-                            .addComponent(jlCity))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfRestaurantName, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(jtfAddressLine1)
-                            .addComponent(jtfAddressLine2)
-                            .addComponent(jtfRestarauntPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfCity)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jlZip))
-                            .addComponent(jlState, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jlRestaurantName)
+                                    .addComponent(jlPhone)
+                                    .addComponent(jlAddress1)
+                                    .addComponent(jlAddress2)
+                                    .addComponent(jlCity))
                                 .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtfRestaurantName, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                    .addComponent(jtfAddressLine1)
+                                    .addComponent(jtfAddressLine2)
+                                    .addComponent(jtfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtfCity)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jlFoodCategories)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(49, 49, 49)
+                                            .addComponent(jlZip))
+                                        .addComponent(jlState, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlFoodCategories)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jcbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfZip, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jcbStates, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jcbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtfZip, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jbAddRestaraunt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +160,7 @@ public class add_restaurant_information extends javax.swing.JFrame {
                     .addComponent(jlRestaurantName))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfRestarauntPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlPhone))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -138,21 +176,36 @@ public class add_restaurant_information extends javax.swing.JFrame {
                     .addComponent(jlCity))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbStates, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlState))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlZip)
                     .addComponent(jtfZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(jlFoodCategories)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlFoodCategories)
+                    .addComponent(jcbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(168, 168, 168)
+                .addComponent(jbAddRestaraunt, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jcbStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbStatesActionPerformed
+
+    }//GEN-LAST:event_jcbStatesActionPerformed
+
+    private void jbAddRestarauntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddRestarauntActionPerformed
+        //Gets string value of States Combobox.
+        strState = String.valueOf(jcbStates.getSelectedItem());
+        //Gets string value of Categories Combobox.
+        strCategory = String.valueOf(jcbCategories.getSelectedItem());
+        //Gets Text Values of input components and sends to database.
+        FUNCTIONS.INTERFACE_REQUEST("1300", "name", jtfRestaurantName.getText(), "phone", jtfPhone.getText(), "address_line_1", jtfAddressLine1.getText(), "address_line_2", jtfAddressLine2.getText(), "city", jtfCity.getText(), "state", strState, "zip_code", jtfZip.getText(), "food_category", strCategory);
+    }//GEN-LAST:event_jbAddRestarauntActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,9 +244,9 @@ public class add_restaurant_information extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList jListFoodCategories;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox jcbState;
+    private javax.swing.JButton jbAddRestaraunt;
+    private javax.swing.JComboBox jcbCategories;
+    private javax.swing.JComboBox jcbStates;
     private javax.swing.JLabel jlAddress1;
     private javax.swing.JLabel jlAddress2;
     private javax.swing.JLabel jlCity;
@@ -205,7 +258,7 @@ public class add_restaurant_information extends javax.swing.JFrame {
     private javax.swing.JTextField jtfAddressLine1;
     private javax.swing.JTextField jtfAddressLine2;
     private javax.swing.JTextField jtfCity;
-    private javax.swing.JTextField jtfRestarauntPhone;
+    private javax.swing.JTextField jtfPhone;
     private javax.swing.JTextField jtfRestaurantName;
     private javax.swing.JTextField jtfZip;
     // End of variables declaration//GEN-END:variables

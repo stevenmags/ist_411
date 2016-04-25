@@ -28,18 +28,100 @@ public class AdvancedSearch extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        RestaurantNameLabel = new javax.swing.JLabel();
+        locationLabel = new javax.swing.JLabel();
+        restaurantNameAdvancedSearchTextField = new javax.swing.JTextField();
+        locationAdvancedSearchTextField = new javax.swing.JTextField();
+        foodCategoryLabel = new javax.swing.JLabel();
+        waitTimeLabel = new javax.swing.JLabel();
+        waitTimeAdvancedSearchTextField = new javax.swing.JTextField();
+        partySizeLabel = new javax.swing.JLabel();
+        partySizeAdvancedSearchTextField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
+        foodCategoryAdvancedSearchComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setText("Advanced Search");
+
+        RestaurantNameLabel.setText("Restaurant Name:");
+
+        locationLabel.setText("Location:");
+
+        foodCategoryLabel.setText("Food Category:");
+
+        waitTimeLabel.setText("Wait Time:");
+
+        partySizeLabel.setText("Party Size:");
+
+        searchButton.setText("Search");
+
+        foodCategoryAdvancedSearchComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        foodCategoryAdvancedSearchComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foodCategoryAdvancedSearchComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(RestaurantNameLabel)
+                                    .addComponent(locationLabel)
+                                    .addComponent(foodCategoryLabel)
+                                    .addComponent(waitTimeLabel)
+                                    .addComponent(partySizeLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(restaurantNameAdvancedSearchTextField)
+                                    .addComponent(locationAdvancedSearchTextField)
+                                    .addComponent(waitTimeAdvancedSearchTextField)
+                                    .addComponent(partySizeAdvancedSearchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                    .addComponent(foodCategoryAdvancedSearchComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(searchButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel1)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RestaurantNameLabel)
+                    .addComponent(restaurantNameAdvancedSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(locationAdvancedSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(locationLabel))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(foodCategoryLabel)
+                    .addComponent(foodCategoryAdvancedSearchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(waitTimeLabel)
+                    .addComponent(waitTimeAdvancedSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partySizeLabel)
+                    .addComponent(partySizeAdvancedSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addComponent(searchButton)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -55,6 +137,17 @@ public class AdvancedSearch extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void foodCategoryAdvancedSearchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodCategoryAdvancedSearchComboBoxActionPerformed
+        String categories_result = FUNCTIONS.INTERFACE_REQUEST("1400");
+        String[] categories = categories_result.split("%\\|%");
+        for(int rcategory_counter = 0; rcategory_counter < categories.length; rcategory_counter++){
+            String[] category_information = categories[rcategory_counter].split("\\|");
+            System.out.println("ID: " + category_information[0]);
+            System.out.println("Category: " + category_information[1]);
+            System.out.println("");
+        }
+    }//GEN-LAST:event_foodCategoryAdvancedSearchComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,6 +185,18 @@ public class AdvancedSearch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel RestaurantNameLabel;
+    private javax.swing.JComboBox foodCategoryAdvancedSearchComboBox;
+    private javax.swing.JLabel foodCategoryLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField locationAdvancedSearchTextField;
+    private javax.swing.JLabel locationLabel;
+    private javax.swing.JTextField partySizeAdvancedSearchTextField;
+    private javax.swing.JLabel partySizeLabel;
+    private javax.swing.JTextField restaurantNameAdvancedSearchTextField;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField waitTimeAdvancedSearchTextField;
+    private javax.swing.JLabel waitTimeLabel;
     // End of variables declaration//GEN-END:variables
 }

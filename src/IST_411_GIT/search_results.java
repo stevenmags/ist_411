@@ -1,5 +1,10 @@
 package IST_411_GIT;
 
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,6 +23,14 @@ public class search_results extends javax.swing.JFrame {
     public search_results() {
         initComponents();
     }
+    public search_results(String in_name){
+        initComponents();
+        get_restaurants(in_name);
+    }
+    public search_results( String in_name, String in_location, String in_category, int in_wait, int in_party ){
+        initComponents();
+        get_restaurants_with_criteria(in_name,in_location,in_category, in_wait, in_party);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,18 +42,28 @@ public class search_results extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jbBack = new javax.swing.JButton();
+        jspRest = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jbBack.setText("Back");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jbBack)
+                .addGap(0, 295, Short.MAX_VALUE))
+            .addComponent(jspRest)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jbBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jspRest, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,16 +107,81 @@ public class search_results extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new search_results().setVisible(true);
+                 //get_restaurants();
+                 System.out.println("-----------------------------------------------------");
+                 //get_restaurants_with_criteria_1("","","",1,2);
             }
         });
     }
-
+    
+    public void get_restaurants(String in_name){
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "Restaurant_Name", in_name);
+        String[] restaurants = restaurant_result.split("%\\|%");
+        for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
+            String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
+            JPanel temp = new JPanel();
+            
+            JLabel id = new JLabel(restaurant_information[0]);
+            JLabel name = new JLabel(restaurant_information[1]);
+            JLabel phone_number = new JLabel(restaurant_information[2]);
+            JLabel address_line_1 = new JLabel(restaurant_information[3]);
+            JLabel address_line_2 = new JLabel(restaurant_information[4]);
+            JLabel city = new JLabel(restaurant_information[5]);
+            JLabel state = new JLabel(restaurant_information[6]);
+            JLabel zipcode = new JLabel(restaurant_information[7]);
+            temp.setSize(500, 300);
+            temp.add(id);
+            temp.add(name);
+            temp.add(phone_number);
+            temp.add(address_line_1);
+            temp.add(address_line_2);
+            temp.add(city);
+            temp.add(state);
+            temp.add(zipcode);
+            
+                        
+            jspRest.setViewportView(temp);
+            
+            System.out.println("ID: " + restaurant_information[0]);
+            System.out.println("Name: " + restaurant_information[1]);
+            System.out.println("Phone Number: " + restaurant_information[2]);
+            System.out.println("Address Line 1: " + restaurant_information[3]);
+            System.out.println("Address Line 2: " + restaurant_information[4]);
+            System.out.println("City: " + restaurant_information[5]);
+            System.out.println("State: " + restaurant_information[6]);
+            System.out.println("ZipCode: " + restaurant_information[7]);
+            System.out.println("Wait Time: "+ restaurant_information[8] );
+            System.out.println("");
+            
+        }
+    }
+    
+    public void get_restaurants_with_criteria(String in_name, String in_location, String in_category, int in_wait, int in_party ){
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", in_name,"ZipCode",in_location,"Category",in_category,"Wait_Time",in_wait+"","Party_Size",in_party+"");
+        String[] restaurants = restaurant_result.split("%\\|%");
+        for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
+            String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
+            
+            System.out.println("ID: " + restaurant_information[0]);
+            System.out.println("Name: " + restaurant_information[1]);
+            System.out.println("Phone Number: " + restaurant_information[2]);
+            System.out.println("Address Line 1: " + restaurant_information[3]);
+            System.out.println("Address Line 2: " + restaurant_information[4]);
+            System.out.println("City: " + restaurant_information[5]);
+            System.out.println("State: " + restaurant_information[6]);
+            System.out.println("ZipCode: " + restaurant_information[7]);
+            System.out.println("Wait Time: "+ restaurant_information[8] );
+            System.out.println("");
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbBack;
+    private javax.swing.JScrollPane jspRest;
     // End of variables declaration//GEN-END:variables
 }

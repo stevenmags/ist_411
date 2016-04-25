@@ -38,15 +38,131 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="350" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="RestaurantNameLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="locationLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="foodCategoryLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="waitTimeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="partySizeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="restaurantNameAdvancedSearchTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="locationAdvancedSearchTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="foodCategoryAdvancedSearchTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="waitTimeAdvancedSearchTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="partySizeAdvancedSearchTextField" alignment="0" pref="151" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="searchButton" min="-2" pref="98" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="64" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="550" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="RestaurantNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="restaurantNameAdvancedSearchTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="locationAdvancedSearchTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="locationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="foodCategoryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="foodCategoryAdvancedSearchTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="waitTimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="waitTimeAdvancedSearchTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="partySizeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="partySizeAdvancedSearchTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="searchButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="183" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Grande" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Advanced Search"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="RestaurantNameLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Restaurant Name:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="locationLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Location:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="restaurantNameAdvancedSearchTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="locationAdvancedSearchTextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="foodCategoryLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Food Category:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="foodCategoryAdvancedSearchTextField">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="waitTimeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Wait Time:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="waitTimeAdvancedSearchTextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="partySizeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Party Size:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="partySizeAdvancedSearchTextField">
+        </Component>
+        <Component class="javax.swing.JButton" name="searchButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search"/>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

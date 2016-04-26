@@ -1,6 +1,7 @@
 package IST_411_GIT;
 
 import java.awt.event.WindowEvent;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -121,30 +122,23 @@ public class search_results extends javax.swing.JFrame {
     public void get_restaurants(String in_name){
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "Restaurant_Name", in_name);
         String[] restaurants = restaurant_result.split("%\\|%");
+        JPanel list_of_restaurants = new JPanel();
+        list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
-            JPanel temp = new JPanel();
+            //jspRest.setLayout(new BoxLayout(jspRest,BoxLayout.LINE_AXIS));
+            JPanel temp = new restaurant_results_layout(restaurant_information[0],
+                                                 restaurant_information[1],
+                                                 restaurant_information[2],
+                                                 restaurant_information[3],
+                                                 restaurant_information[4],
+                                                 restaurant_information[5],
+                                                 restaurant_information[6],
+                                                 restaurant_information[7],
+                                                 restaurant_information[8]);
             
-            JLabel id = new JLabel(restaurant_information[0]);
-            JLabel name = new JLabel(restaurant_information[1]);
-            JLabel phone_number = new JLabel(restaurant_information[2]);
-            JLabel address_line_1 = new JLabel(restaurant_information[3]);
-            JLabel address_line_2 = new JLabel(restaurant_information[4]);
-            JLabel city = new JLabel(restaurant_information[5]);
-            JLabel state = new JLabel(restaurant_information[6]);
-            JLabel zipcode = new JLabel(restaurant_information[7]);
-            temp.setSize(500, 300);
-            temp.add(id);
-            temp.add(name);
-            temp.add(phone_number);
-            temp.add(address_line_1);
-            temp.add(address_line_2);
-            temp.add(city);
-            temp.add(state);
-            temp.add(zipcode);
+            list_of_restaurants.add(temp);
             
-                        
-            jspRest.setViewportView(temp);
             
             System.out.println("ID: " + restaurant_information[0]);
             System.out.println("Name: " + restaurant_information[1]);
@@ -156,38 +150,31 @@ public class search_results extends javax.swing.JFrame {
             System.out.println("ZipCode: " + restaurant_information[7]);
             System.out.println("Wait Time: "+ restaurant_information[8] );
             System.out.println("");
-            
         }
+        jspRest.setViewportView(list_of_restaurants);
     }
     
     public void get_restaurants_with_criteria(String in_name, String in_location, String in_category, int in_wait, int in_party ){
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", in_name,"ZipCode",in_location,"Category",in_category,"Wait_Time",in_wait+"","Party_Size",in_party+"");
         String[] restaurants = restaurant_result.split("%\\|%");
         int num = 100;
+        JPanel list_of_restaurants = new JPanel();
+        list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
-            JPanel temp = new JPanel();
+            //jspRest.setLayout(new BoxLayout(jspRest,BoxLayout.LINE_AXIS));
+            JPanel temp = new restaurant_results_layout(restaurant_information[0],
+                                                 restaurant_information[1],
+                                                 restaurant_information[2],
+                                                 restaurant_information[3],
+                                                 restaurant_information[4],
+                                                 restaurant_information[5],
+                                                 restaurant_information[6],
+                                                 restaurant_information[7],
+                                                 restaurant_information[8]);
             
-            JLabel id = new JLabel(restaurant_information[0]);
-            JLabel name = new JLabel(restaurant_information[1]);
-            JLabel phone_number = new JLabel(restaurant_information[2]);
-            JLabel address_line_1 = new JLabel(restaurant_information[3]);
-            JLabel address_line_2 = new JLabel(restaurant_information[4]);
-            JLabel city = new JLabel(restaurant_information[5]);
-            JLabel state = new JLabel(restaurant_information[6]);
-            JLabel zipcode = new JLabel(restaurant_information[7]);
-            temp.setSize(100, 100);
-            temp.add(id);
-            temp.add(name);
-            temp.add(phone_number);
-            temp.add(address_line_1);
-            temp.add(address_line_2);
-            temp.add(city);
-            temp.add(state);
-            temp.add(zipcode);
-            temp.setLocation(0, num );
-            num=num+num;
-            jspRest.setViewportView(temp);
+            list_of_restaurants.add(temp);
+            
             
             System.out.println("ID: " + restaurant_information[0]);
             System.out.println("Name: " + restaurant_information[1]);
@@ -200,6 +187,7 @@ public class search_results extends javax.swing.JFrame {
             System.out.println("Wait Time: "+ restaurant_information[8] );
             System.out.println("");
         }
+        jspRest.setViewportView(list_of_restaurants);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

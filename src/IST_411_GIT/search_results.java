@@ -49,6 +49,11 @@ public class search_results extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jbBack.setText("Back");
+        jbBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,6 +85,13 @@ public class search_results extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBackActionPerformed
+        JFrame main = new main();
+        main.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,7 +138,6 @@ public class search_results extends javax.swing.JFrame {
         list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
-            //jspRest.setLayout(new BoxLayout(jspRest,BoxLayout.LINE_AXIS));
             JPanel temp = new restaurant_results_layout(restaurant_information[0],
                                                  restaurant_information[1],
                                                  restaurant_information[2],
@@ -157,12 +168,10 @@ public class search_results extends javax.swing.JFrame {
     public void get_restaurants_with_criteria(String in_name, String in_location, String in_category, int in_wait, int in_party ){
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", in_name,"ZipCode",in_location,"Category",in_category,"Wait_Time",in_wait+"","Party_Size",in_party+"");
         String[] restaurants = restaurant_result.split("%\\|%");
-        int num = 100;
         JPanel list_of_restaurants = new JPanel();
         list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
-            //jspRest.setLayout(new BoxLayout(jspRest,BoxLayout.LINE_AXIS));
             JPanel temp = new restaurant_results_layout(restaurant_information[0],
                                                  restaurant_information[1],
                                                  restaurant_information[2],

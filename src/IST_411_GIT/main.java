@@ -1,5 +1,7 @@
 package IST_411_GIT;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nathan
@@ -127,8 +129,13 @@ public class main extends javax.swing.JFrame {
 
     private void jbtNameSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtNameSearchActionPerformed
     {//GEN-HEADEREND:event_jbtNameSearchActionPerformed
-        search_results results = new search_results(jtfNameToSearch.getText());    
-        results.setVisible(true);
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", jtfNameToSearch.getText());
+        if(restaurant_result.equals("") || restaurant_result.equals("<br />")){
+            JOptionPane.showMessageDialog(this, "Sorry, No Restaurants were found");
+        }else{
+            search_results results = new search_results(restaurant_result);
+            results.setVisible(true);
+        }        
         this.dispose(); 
     }//GEN-LAST:event_jbtNameSearchActionPerformed
 

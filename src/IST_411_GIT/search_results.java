@@ -1,9 +1,12 @@
 package IST_411_GIT;
 
+import java.awt.Component;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /*
@@ -132,10 +135,12 @@ public class search_results extends javax.swing.JFrame {
     }
     
     public void get_restaurants(String in_name){
+        try{
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "Restaurant_Name", in_name);
         String[] restaurants = restaurant_result.split("%\\|%");
         JPanel list_of_restaurants = new JPanel();
-        list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));
+        BoxLayout new_layout = new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS);
+        list_of_restaurants.setLayout(new_layout);
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
             JPanel temp = new restaurant_results_layout(restaurant_information[0],
@@ -163,6 +168,14 @@ public class search_results extends javax.swing.JFrame {
             System.out.println("");
         }
         jspRest.setViewportView(list_of_restaurants);
+        }
+        catch (Exception e) {
+            System.out.println(e.getStackTrace());
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Please enter a party size.");
+            return;
+            
+        }
     }
     
     public void get_restaurants_with_criteria(String in_name, String in_location, String in_category, int in_wait, int in_party ){

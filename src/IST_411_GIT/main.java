@@ -127,8 +127,7 @@ public class main extends javax.swing.JFrame {
 
     private void jbtNameSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtNameSearchActionPerformed
     {//GEN-HEADEREND:event_jbtNameSearchActionPerformed
-        search_results results = new search_results();
-        results.get_restaurants( jtfNameToSearch.getText() );    
+        search_results results = new search_results(jtfNameToSearch.getText());    
         results.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_jbtNameSearchActionPerformed

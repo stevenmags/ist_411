@@ -26,104 +26,90 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jlRestaurantName" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlPhone" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlAddress1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlAddress2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlCity" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtfRestaurantName" alignment="0" pref="274" max="32767" attributes="0"/>
-                                  <Component id="jtfAddressLine1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtfAddressLine2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtfPhone" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <Component id="jtfCity" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jlFoodCategories" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                          <Component id="jlZip" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jlState" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jcbStates" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jcbCategories" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jtfZip" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
+                  <Component id="jbAddRestaraunt" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jbCancel" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jbAddRestaraunt" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jlRestaurantName" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlCity" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlAddress1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtfRestaurantName" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
+                  <Component id="jlPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtfPhone" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                  <Component id="jtfAddressLine1" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
+                  <Component id="jlAddress2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtfAddressLine2" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
+                  <Component id="jtfCity" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jlState" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbStates" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jtfZip" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="jlZip" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jlFoodCategories" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jcbCategories" min="-2" pref="181" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jlRestaurantName" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="jtfRestaurantName" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jlPhone" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="jtfPhone" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jlAddress1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="jtfAddressLine1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jlAddress2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="jtfAddressLine2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jlCity" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="jtfCity" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jtfRestaurantName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlRestaurantName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlState" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlZip" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jtfPhone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlPhone" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jtfAddressLine1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jtfAddressLine2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlAddress2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jtfCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlCity" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jcbStates" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlState" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlZip" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtfZip" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlFoodCategories" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbCategories" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlFoodCategories" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-              <Component id="jbAddRestaraunt" pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <Component id="jbAddRestaraunt" min="-2" pref="71" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="jbCancel" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -139,7 +125,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jlPhone">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Phone:"/>
+        <Property name="text" type="java.lang.String" value="*Phone:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfAddressLine1">
@@ -148,7 +134,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jlFoodCategories">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Food Categories"/>
+        <Property name="text" type="java.lang.String" value="Food Category:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfZip">
@@ -165,29 +151,29 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jlAddress1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Address Line 1:"/>
+        <Property name="text" type="java.lang.String" value="*Address Line 1:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jlCity">
       <Properties>
-        <Property name="text" type="java.lang.String" value="City:"/>
+        <Property name="text" type="java.lang.String" value="*City:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jlZip">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Zip Code:"/>
+        <Property name="text" type="java.lang.String" value="*Zip Code:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfRestaurantName">
     </Component>
     <Component class="javax.swing.JLabel" name="jlState">
       <Properties>
-        <Property name="text" type="java.lang.String" value="State:"/>
+        <Property name="text" type="java.lang.String" value="*State:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jlRestaurantName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Restaurant Name:"/>
+        <Property name="text" type="java.lang.String" value="*Restaurant Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfAddressLine2">
@@ -206,6 +192,14 @@
           <StringArray count="0"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbCancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCancelActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

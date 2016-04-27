@@ -5,6 +5,8 @@
  */
 package IST_411_GIT;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Steven
@@ -16,6 +18,16 @@ public class AdvancedSearch extends javax.swing.JFrame {
      */
     public AdvancedSearch() {
         initComponents();
+        String categories_result = FUNCTIONS.INTERFACE_REQUEST("1400");
+        String[] categories = categories_result.split("%\\|%");
+        for(int rcategory_counter = 0; rcategory_counter < categories.length; rcategory_counter++){
+            String[] category_information = categories[rcategory_counter].split("\\|");
+            System.out.println("ID: " + category_information[0]);
+            foodCategoryAdvancedSearchComboBox.addItem(category_information[0]);
+            System.out.println("Category: " + category_information[1]);
+            foodCategoryAdvancedSearchComboBox.addItem(category_information[1]);
+            System.out.println("");
+        }
     }
 
     /**
@@ -27,6 +39,9 @@ public class AdvancedSearch extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jSlider1 = new javax.swing.JSlider();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RestaurantNameLabel = new javax.swing.JLabel();
@@ -35,11 +50,15 @@ public class AdvancedSearch extends javax.swing.JFrame {
         locationAdvancedSearchTextField = new javax.swing.JTextField();
         foodCategoryLabel = new javax.swing.JLabel();
         waitTimeLabel = new javax.swing.JLabel();
-        waitTimeAdvancedSearchTextField = new javax.swing.JTextField();
         partySizeLabel = new javax.swing.JLabel();
-        partySizeAdvancedSearchTextField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         foodCategoryAdvancedSearchComboBox = new javax.swing.JComboBox();
+        jcb_party_size = new javax.swing.JComboBox();
+        js_wait_time = new javax.swing.JSpinner();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,7 +67,7 @@ public class AdvancedSearch extends javax.swing.JFrame {
 
         RestaurantNameLabel.setText("Restaurant Name:");
 
-        locationLabel.setText("Location:");
+        locationLabel.setText("Zip Code:");
 
         foodCategoryLabel.setText("Food Category:");
 
@@ -57,13 +76,23 @@ public class AdvancedSearch extends javax.swing.JFrame {
         partySizeLabel.setText("Party Size:");
 
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
-        foodCategoryAdvancedSearchComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        foodCategoryAdvancedSearchComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Food Category" }));
         foodCategoryAdvancedSearchComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodCategoryAdvancedSearchComboBoxActionPerformed(evt);
             }
         });
+
+        jcb_party_size.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Party Size", "1-2", "3-4", "5-6", "7-10", "10+" }));
+
+        js_wait_time.setModel(new javax.swing.SpinnerNumberModel(0, 0, 120, 5));
+        js_wait_time.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,7 +102,8 @@ public class AdvancedSearch extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RestaurantNameLabel)
@@ -85,14 +115,13 @@ public class AdvancedSearch extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(restaurantNameAdvancedSearchTextField)
                                     .addComponent(locationAdvancedSearchTextField)
-                                    .addComponent(waitTimeAdvancedSearchTextField)
-                                    .addComponent(partySizeAdvancedSearchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                                    .addComponent(foodCategoryAdvancedSearchComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(searchButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(foodCategoryAdvancedSearchComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jcb_party_size, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(js_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(jLabel1)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(58, 58, 58))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,14 +143,14 @@ public class AdvancedSearch extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(waitTimeLabel)
-                    .addComponent(waitTimeAdvancedSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(js_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partySizeLabel)
-                    .addComponent(partySizeAdvancedSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                    .addComponent(jcb_party_size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
                 .addComponent(searchButton)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,15 +168,19 @@ public class AdvancedSearch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void foodCategoryAdvancedSearchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodCategoryAdvancedSearchComboBoxActionPerformed
-        String categories_result = FUNCTIONS.INTERFACE_REQUEST("1400");
-        String[] categories = categories_result.split("%\\|%");
-        for(int rcategory_counter = 0; rcategory_counter < categories.length; rcategory_counter++){
-            String[] category_information = categories[rcategory_counter].split("\\|");
-            System.out.println("ID: " + category_information[0]);
-            System.out.println("Category: " + category_information[1]);
-            System.out.println("");
-        }
+        
     }//GEN-LAST:event_foodCategoryAdvancedSearchComboBoxActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", restaurantNameAdvancedSearchTextField.getText(),"ZipCode",locationAdvancedSearchTextField.getText(),"Category",foodCategoryAdvancedSearchComboBox.getSelectedItem().toString(),"Wait_Time",js_wait_time.getValue()+"","Party_Size",jcb_party_size.getSelectedIndex()+"");
+        if(restaurant_result.equals("") || restaurant_result.equals("<br />")){
+            JOptionPane.showMessageDialog(this, "Sorry, No Restaurants were found");
+        }else{
+            search_results searchResults = new search_results(restaurant_result);
+        }
+        
+        
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,13 +223,16 @@ public class AdvancedSearch extends javax.swing.JFrame {
     private javax.swing.JLabel foodCategoryLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox jcb_party_size;
+    private javax.swing.JSpinner js_wait_time;
     private javax.swing.JTextField locationAdvancedSearchTextField;
     private javax.swing.JLabel locationLabel;
-    private javax.swing.JTextField partySizeAdvancedSearchTextField;
     private javax.swing.JLabel partySizeLabel;
     private javax.swing.JTextField restaurantNameAdvancedSearchTextField;
     private javax.swing.JButton searchButton;
-    private javax.swing.JTextField waitTimeAdvancedSearchTextField;
     private javax.swing.JLabel waitTimeLabel;
     // End of variables declaration//GEN-END:variables
 }

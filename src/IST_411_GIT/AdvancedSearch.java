@@ -22,9 +22,6 @@ public class AdvancedSearch extends javax.swing.JFrame {
         String[] categories = categories_result.split("%\\|%");
         for(int rcategory_counter = 0; rcategory_counter < categories.length; rcategory_counter++){
             String[] category_information = categories[rcategory_counter].split("\\|");
-            System.out.println("ID: " + category_information[0]);
-            foodCategoryAdvancedSearchComboBox.addItem(category_information[0]);
-            System.out.println("Category: " + category_information[1]);
             foodCategoryAdvancedSearchComboBox.addItem(category_information[1]);
             System.out.println("");
         }
@@ -173,6 +170,7 @@ public class AdvancedSearch extends javax.swing.JFrame {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", restaurantNameAdvancedSearchTextField.getText(),"ZipCode",locationAdvancedSearchTextField.getText(),"Category",foodCategoryAdvancedSearchComboBox.getSelectedItem().toString(),"Wait_Time",js_wait_time.getValue()+"","Party_Size",jcb_party_size.getSelectedIndex()+"");
+        System.out.println(restaurant_result);
         if(restaurant_result.equals("") || restaurant_result.equals("<br />")){
             JOptionPane.showMessageDialog(this, "Sorry, No Restaurants were found");
         }else{

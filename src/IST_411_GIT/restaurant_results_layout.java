@@ -63,6 +63,9 @@ public class restaurant_results_layout extends javax.swing.JPanel {
         jl_zip_code = new javax.swing.JLabel();
         jl_wait_time = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 255), null));
+        setMaximumSize(new java.awt.Dimension(350, 150));
+
         jLabel1.setText("ID");
 
         jLabel2.setText("Name");
@@ -135,7 +138,7 @@ public class restaurant_results_layout extends javax.swing.JPanel {
                             .addComponent(jl_zip_code)
                             .addComponent(jl_wait_time)))
                     .addComponent(jl_address_line_2))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +171,7 @@ public class restaurant_results_layout extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jl_address_line_2))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -135,7 +135,8 @@ public class search_results extends javax.swing.JFrame {
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "Restaurant_Name", in_name);
         String[] restaurants = restaurant_result.split("%\\|%");
         JPanel list_of_restaurants = new JPanel();
-        list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));
+        BoxLayout new_layout = new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS);
+        list_of_restaurants.setLayout(new_layout);
         for(int restaurant_counter = 0; restaurant_counter < restaurants.length; restaurant_counter++){
             String[] restaurant_information = restaurants[restaurant_counter].split("\\|");
             JPanel temp = new restaurant_results_layout(restaurant_information[0],

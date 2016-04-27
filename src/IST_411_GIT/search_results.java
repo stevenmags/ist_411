@@ -27,13 +27,9 @@ public class search_results extends javax.swing.JFrame {
     public search_results() {
         initComponents();
     }
-    public search_results(String in_name){
+    public search_results(String restaurant_result){
         initComponents();
-        get_restaurants(in_name);
-    }
-    public search_results( String in_name, String in_location, String in_category, int in_wait, int in_party ){
-        initComponents();
-        get_restaurants_with_criteria(in_name,in_location,in_category, in_wait, in_party);
+        get_restaurants(restaurant_result);
     }
 
     /**
@@ -134,9 +130,13 @@ public class search_results extends javax.swing.JFrame {
         });
     }
     
-    public void get_restaurants(String in_name){
-        try{
-        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "Restaurant_Name", in_name);
+    public void get_restaurants(String restaurant_result){
+
+        //String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100", "Restaurant_Name", in_name);
+//        if(restaurant_result.equals("")||restaurant_result.equals("<br />")){
+//            throw new Exception();
+//        }
+        initComponents();
         String[] restaurants = restaurant_result.split("%\\|%");
         JPanel list_of_restaurants = new JPanel();
         BoxLayout new_layout = new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS);
@@ -166,20 +166,13 @@ public class search_results extends javax.swing.JFrame {
             System.out.println("ZipCode: " + restaurant_information[7]);
             System.out.println("Wait Time: "+ restaurant_information[8] );
             System.out.println("");
-        }
         jspRest.setViewportView(list_of_restaurants);
-        }
-        catch (Exception e) {
-            System.out.println(e.getStackTrace());
-            Component frame = null;
-            JOptionPane.showMessageDialog(frame, "Please enter a party size.");
-            return;
-            
+
         }
     }
     
-    public void get_restaurants_with_criteria(String in_name, String in_location, String in_category, int in_wait, int in_party ){
-        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", in_name,"ZipCode",in_location,"Category",in_category,"Wait_Time",in_wait+"","Party_Size",in_party+"");
+    public void get_restaurants_with_criteria(String restaurant_result){
+        //String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", in_name,"ZipCode",in_location,"Category",in_category,"Wait_Time",in_wait+"","Party_Size",in_party+"");
         String[] restaurants = restaurant_result.split("%\\|%");
         JPanel list_of_restaurants = new JPanel();
         list_of_restaurants.setLayout(new BoxLayout(list_of_restaurants,BoxLayout.PAGE_AXIS));

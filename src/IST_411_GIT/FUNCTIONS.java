@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,7 +20,7 @@ import java.net.URLEncoder;
 public class FUNCTIONS {
     public static String INTERFACE_REQUEST(String request_key, String... request_parameters){
         try{
-
+            
             String link="http://www.pennstatedev.com/ist_411/interface.php";
             
             String post_data = "interface_request=" + request_key;

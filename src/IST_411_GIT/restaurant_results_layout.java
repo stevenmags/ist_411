@@ -78,7 +78,7 @@ public class restaurant_results_layout extends javax.swing.JPanel {
 
         jLabel9.setText("Wait Time:");
 
-        jl_name.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jl_name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_name.setText("jLabel10");
 
         jl_phone_number.setText("jLabel10");

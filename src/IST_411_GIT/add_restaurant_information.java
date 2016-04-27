@@ -244,6 +244,7 @@ public class add_restaurant_information extends javax.swing.JFrame {
 
         //Gets Text Values of input components and sends to database        
         FUNCTIONS.INTERFACE_REQUEST("1300", "name", jtfRestaurantName.getText(), "phone", jtfPhone.getText(), "address_line_1", jtfAddressLine1.getText(), "address_line_2", jtfAddressLine2.getText(), "city", jtfCity.getText(), "state", strState, "zip_code", jtfZip.getText(), "food_category", strCategory);
+        JOptionPane.showMessageDialog(this, "Restaurant was added");
         JFrame main = new main();
         main.setVisible(true);
         this.dispose();

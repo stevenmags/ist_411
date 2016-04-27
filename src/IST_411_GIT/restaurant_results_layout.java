@@ -5,6 +5,13 @@
  */
 package IST_411_GIT;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+
 /**
  *
  * @author Nathan
@@ -23,15 +30,24 @@ public class restaurant_results_layout extends javax.swing.JPanel {
     }
     
     public void set_labels(String in_id, String in_name, String in_phone_number, String in_address_line_1, String in_address_line_2, String in_city, String in_state, String in_zip_code, String in_wait_time){
-        jl_id.setText(in_id);
+        //jl_id.setText(in_id);
         jl_name.setText(in_name);
         jl_phone_number.setText(in_phone_number);
-        jl_address_line_1.setText(in_address_line_1);
-        jl_address_line_2.setText(in_address_line_2);
-        jl_city.setText(in_city);
-        jl_state.setText(in_state);
-        jl_zip_code.setText(in_zip_code);
+        jl_address_line_1.setText(in_address_line_1+" "+ in_city);
+        
+        //jl_address_line_2.setText(in_address_line_2);
+        //jl_city.setText(in_city);
+        jl_state.setText(in_state+", "+in_zip_code);
+        //jl_zip_code.setText(in_zip_code);
         jl_wait_time.setText(in_wait_time);
+        jb_submit_wait_time.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                jb_submit_wait_timeActionPerformed(e, in_id, js_wait_time, jcb_party_size);
+            }
+        });
+        
         
     }
 
@@ -44,64 +60,46 @@ public class restaurant_results_layout extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jl_id = new javax.swing.JLabel();
         jl_name = new javax.swing.JLabel();
         jl_phone_number = new javax.swing.JLabel();
         jl_address_line_1 = new javax.swing.JLabel();
-        jl_address_line_2 = new javax.swing.JLabel();
         jl_state = new javax.swing.JLabel();
-        jl_city = new javax.swing.JLabel();
-        jl_zip_code = new javax.swing.JLabel();
         jl_wait_time = new javax.swing.JLabel();
+        js_wait_time = new javax.swing.JSpinner();
+        jb_submit_wait_time = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jcb_party_size = new javax.swing.JComboBox();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 255), null));
+        setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         setMaximumSize(new java.awt.Dimension(350, 150));
 
-        jLabel1.setText("ID");
+        jLabel9.setText("Wait Time:");
 
-        jLabel2.setText("Name");
-
-        jLabel3.setText("Phone Number");
-
-        jLabel4.setText("Address Line 1");
-
-        jLabel5.setText("Address Line 2");
-
-        jLabel6.setText("State");
-
-        jLabel7.setText("City");
-
-        jLabel8.setText("Zip Code");
-
-        jLabel9.setText("Wait Time");
-
-        jl_id.setBackground(new java.awt.Color(0, 153, 153));
-        jl_id.setText("jLabel10");
-
+        jl_name.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jl_name.setText("jLabel10");
 
         jl_phone_number.setText("jLabel10");
 
         jl_address_line_1.setText("jLabel10");
 
-        jl_address_line_2.setText("jLabel11");
-
         jl_state.setText("jLabel12");
 
-        jl_city.setText("jLabel13");
-
-        jl_zip_code.setText("jLabel14");
-
         jl_wait_time.setText("jLabel15");
+
+        js_wait_time.setModel(new javax.swing.SpinnerNumberModel(5, 5, 120, 5));
+        js_wait_time.setRequestFocusEnabled(false);
+
+        jb_submit_wait_time.setText("Submit Wait Time");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Add Wait Time:");
+
+        jLabel2.setText("Wait Time:");
+
+        jcb_party_size.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Party Size", "1-2", "3-4", "5-6", "7-10", "10+" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,91 +107,84 @@ public class restaurant_results_layout extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_phone_number, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_state)
+                    .addComponent(jl_address_line_1)
+                    .addComponent(jl_name, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jl_id, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                                .addComponent(jl_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jl_phone_number, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jl_address_line_1))
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_state)
-                            .addComponent(jl_city)
-                            .addComponent(jl_zip_code)
-                            .addComponent(jl_wait_time)))
-                    .addComponent(jl_address_line_2))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(jl_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(js_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2))
+                            .addComponent(jcb_party_size, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_submit_wait_time, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(5, 5, 5))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel6)
-                    .addComponent(jl_id)
-                    .addComponent(jl_state))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7)
-                    .addComponent(jl_name)
-                    .addComponent(jl_city))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8)
-                    .addComponent(jl_phone_number)
-                    .addComponent(jl_zip_code))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jl_name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jl_address_line_1)
                     .addComponent(jl_wait_time))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jl_address_line_2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jl_phone_number)
+                    .addComponent(jLabel1))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_address_line_1)
+                    .addComponent(js_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jl_state)
+                        .addGap(0, 0, 0))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcb_party_size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)))
+                .addComponent(jb_submit_wait_time)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private void jb_submit_wait_timeActionPerformed(java.awt.event.ActionEvent evt, String in_restaurant_id ,JSpinner in_spinner, JComboBox in_party_size){
+        //System.out.println("in_restaurant_id = " + in_restaurant_id)
+        Component frame = null;
+        if(in_party_size.getSelectedIndex()>0){
+            String add_wait_time = FUNCTIONS.INTERFACE_REQUEST("1200", "restaurant_id", in_restaurant_id, "wait_time", in_spinner.getValue()+"", "party_size", in_party_size.getSelectedIndex()+"");
+            JOptionPane.showMessageDialog(frame, "Wait time submitted. Thank you!");
+        }
+        else{
+            
+            JOptionPane.showMessageDialog(frame, "Please enter a party size.");
+            return;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jb_submit_wait_time;
+    private javax.swing.JComboBox jcb_party_size;
     private javax.swing.JLabel jl_address_line_1;
-    private javax.swing.JLabel jl_address_line_2;
-    private javax.swing.JLabel jl_city;
-    private javax.swing.JLabel jl_id;
     private javax.swing.JLabel jl_name;
     private javax.swing.JLabel jl_phone_number;
     private javax.swing.JLabel jl_state;
     private javax.swing.JLabel jl_wait_time;
-    private javax.swing.JLabel jl_zip_code;
+    private javax.swing.JSpinner js_wait_time;
     // End of variables declaration//GEN-END:variables
 }

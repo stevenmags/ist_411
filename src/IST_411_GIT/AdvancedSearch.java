@@ -5,6 +5,8 @@
  */
 package IST_411_GIT;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Steven
@@ -170,8 +172,12 @@ public class AdvancedSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_foodCategoryAdvancedSearchComboBoxActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        
-        search_results searchResults = new search_results(restaurantNameAdvancedSearchTextField.getText(), locationAdvancedSearchTextField.getText(), foodCategoryAdvancedSearchComboBox.getSelectedItem().toString(), (int) js_wait_time.getValue(), jcb_party_size.getSelectedIndex());
+        String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", restaurantNameAdvancedSearchTextField.getText(),"ZipCode",locationAdvancedSearchTextField.getText(),"Category",foodCategoryAdvancedSearchComboBox.getSelectedItem().toString(),"Wait_Time",js_wait_time.getValue()+"","Party_Size",jcb_party_size.getSelectedIndex()+"");
+        if(restaurant_result.equals("") || restaurant_result.equals("<br />")){
+            JOptionPane.showMessageDialog(this, "Sorry, No Restaurants were found");
+        }else{
+            search_results searchResults = new search_results(restaurant_result);
+        }
         
         
     }//GEN-LAST:event_searchButtonActionPerformed

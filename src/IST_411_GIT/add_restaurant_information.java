@@ -111,7 +111,7 @@ public class add_restaurant_information extends javax.swing.JFrame {
             }
         });
 
-        jbCancel.setText("Cancel");
+        jbCancel.setText("Back");
         jbCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCancelActionPerformed(evt);

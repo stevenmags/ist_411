@@ -5,6 +5,7 @@
  */
 package IST_411_GIT;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,6 +53,7 @@ public class AdvancedSearch extends javax.swing.JFrame {
         foodCategoryAdvancedSearchComboBox = new javax.swing.JComboBox();
         jcb_party_size = new javax.swing.JComboBox();
         js_wait_time = new javax.swing.JSpinner();
+        jb_back = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -91,6 +93,13 @@ public class AdvancedSearch extends javax.swing.JFrame {
         js_wait_time.setModel(new javax.swing.SpinnerNumberModel(0, 0, 120, 5));
         js_wait_time.setRequestFocusEnabled(false);
 
+        jb_back.setText("Back");
+        jb_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_backActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,7 +123,10 @@ public class AdvancedSearch extends javax.swing.JFrame {
                                     .addComponent(locationAdvancedSearchTextField)
                                     .addComponent(foodCategoryAdvancedSearchComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jcb_party_size, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(js_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(js_wait_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jb_back))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(jLabel1)))
@@ -146,7 +158,9 @@ public class AdvancedSearch extends javax.swing.JFrame {
                     .addComponent(partySizeLabel)
                     .addComponent(jcb_party_size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
-                .addComponent(searchButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchButton)
+                    .addComponent(jb_back))
                 .addContainerGap(166, Short.MAX_VALUE))
         );
 
@@ -179,6 +193,13 @@ public class AdvancedSearch extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void jb_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_backActionPerformed
+        JFrame main = new main();
+        main.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +245,7 @@ public class AdvancedSearch extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jb_back;
     private javax.swing.JComboBox jcb_party_size;
     private javax.swing.JSpinner js_wait_time;
     private javax.swing.JTextField locationAdvancedSearchTextField;

@@ -188,8 +188,10 @@ public class AdvancedSearch extends javax.swing.JFrame {
         if(restaurant_result.equals("") || restaurant_result.equals("<br />")){
             JOptionPane.showMessageDialog(this, "Sorry, No Restaurants were found");
         }else{
-            search_results searchResults = new search_results(restaurant_result);
-        }
+            search_results results = new search_results(restaurant_result);
+            results.setVisible(true);
+            this.dispose();
+        }   
         
         
     }//GEN-LAST:event_searchButtonActionPerformed

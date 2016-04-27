@@ -5,8 +5,10 @@
  */
 package IST_411_GIT;
 
+import java.awt.Component;
 import java.awt.Frame;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,7 +33,7 @@ public class add_restaurant_information extends javax.swing.JFrame {
                                     "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
                                     "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
                                     "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
-        for (String strAdd: aryStates)
+        for (String strAdd : aryStates)
         {
             jcbStates.addItem(strAdd);
         }
@@ -76,14 +78,15 @@ public class add_restaurant_information extends javax.swing.JFrame {
         jtfAddressLine2 = new javax.swing.JTextField();
         jbAddRestaraunt = new javax.swing.JButton();
         jcbCategories = new javax.swing.JComboBox();
+        jbCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jlAddress2.setText("Address Line 2:");
 
-        jlPhone.setText("Phone:");
+        jlPhone.setText("*Phone:");
 
-        jlFoodCategories.setText("Food Categories");
+        jlFoodCategories.setText("Food Category:");
 
         jcbStates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,20 +94,27 @@ public class add_restaurant_information extends javax.swing.JFrame {
             }
         });
 
-        jlAddress1.setText("Address Line 1:");
+        jlAddress1.setText("*Address Line 1:");
 
-        jlCity.setText("City:");
+        jlCity.setText("*City:");
 
-        jlZip.setText("Zip Code:");
+        jlZip.setText("*Zip Code:");
 
-        jlState.setText("State:");
+        jlState.setText("*State:");
 
-        jlRestaurantName.setText("Restaurant Name:");
+        jlRestaurantName.setText("*Restaurant Name:");
 
         jbAddRestaraunt.setText("Add Restaurant");
         jbAddRestaraunt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAddRestarauntActionPerformed(evt);
+            }
+        });
+
+        jbCancel.setText("Cancel");
+        jbCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelActionPerformed(evt);
             }
         });
 
@@ -115,80 +125,77 @@ public class add_restaurant_information extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbAddRestaraunt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlRestaurantName)
+                    .addComponent(jlCity)
+                    .addComponent(jlAddress1)
+                    .addComponent(jtfRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlPhone)
+                    .addComponent(jtfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfAddressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlAddress2)
+                    .addComponent(jtfAddressLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfCity, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jlRestaurantName)
-                                    .addComponent(jlPhone)
-                                    .addComponent(jlAddress1)
-                                    .addComponent(jlAddress2)
-                                    .addComponent(jlCity))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtfRestaurantName, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                                    .addComponent(jtfAddressLine1)
-                                    .addComponent(jtfAddressLine2)
-                                    .addComponent(jtfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtfCity)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jlFoodCategories)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(49, 49, 49)
-                                            .addComponent(jlZip))
-                                        .addComponent(jlState, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jcbStates, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jcbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jtfZip, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jbAddRestaraunt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(jlState)
+                            .addComponent(jcbStates, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfZip, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlZip)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlFoodCategories)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addContainerGap()
+                .addComponent(jlRestaurantName)
+                .addGap(1, 1, 1)
+                .addComponent(jtfRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlPhone)
+                .addGap(1, 1, 1)
+                .addComponent(jtfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlAddress1)
+                .addGap(1, 1, 1)
+                .addComponent(jtfAddressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlAddress2)
+                .addGap(3, 3, 3)
+                .addComponent(jtfAddressLine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlCity)
+                .addGap(1, 1, 1)
+                .addComponent(jtfCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlRestaurantName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlPhone))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfAddressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlAddress1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfAddressLine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlAddress2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlCity))
-                .addGap(18, 18, 18)
+                    .addComponent(jlState)
+                    .addComponent(jlZip))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbStates, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlState))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlZip)
                     .addComponent(jtfZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlFoodCategories)
-                    .addComponent(jcbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(168, 168, 168)
-                .addComponent(jbAddRestaraunt, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(jcbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlFoodCategories))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jbAddRestaraunt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jbCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -199,17 +206,55 @@ public class add_restaurant_information extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jcbStatesActionPerformed
 
+    //When activated checks input values and inserts values into database.
     private void jbAddRestarauntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddRestarauntActionPerformed
         //Gets string value of States Combobox.
         strState = String.valueOf(jcbStates.getSelectedItem());
         //Gets string value of Categories Combobox.
         strCategory = String.valueOf(jcbCategories.getSelectedItem());
-        //Gets Text Values of input components and sends to database.
+        
+        //Checks if required fields are null and requests input if they are.
+        Component frame = null;
+        if (jtfRestaurantName.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(frame, "Please enter a Restaurant Name.");
+            return;
+        }
+        if (jtfPhone.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(frame, "Please enter a Phone Number.");
+            return;
+        }
+        if (jtfAddressLine1.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(frame, "Please enter an Address.");
+            return;
+        }        
+        if (jtfCity.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(frame, "Please enter a City.");
+            return;
+        }
+        if (jtfZip.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(frame, "Please enter a Zip Code.");
+            return;
+        }
+        
+
+        //Gets Text Values of input components and sends to database        
         FUNCTIONS.INTERFACE_REQUEST("1300", "name", jtfRestaurantName.getText(), "phone", jtfPhone.getText(), "address_line_1", jtfAddressLine1.getText(), "address_line_2", jtfAddressLine2.getText(), "city", jtfCity.getText(), "state", strState, "zip_code", jtfZip.getText(), "food_category", strCategory);
         JFrame main = new main();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbAddRestarauntActionPerformed
+    
+    //Closes window back to Main without a database entry.
+    private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelActionPerformed
+        JFrame main = new main();
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +294,7 @@ public class add_restaurant_information extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbAddRestaraunt;
+    private javax.swing.JButton jbCancel;
     private javax.swing.JComboBox jcbCategories;
     private javax.swing.JComboBox jcbStates;
     private javax.swing.JLabel jlAddress1;

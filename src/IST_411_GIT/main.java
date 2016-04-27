@@ -130,13 +130,14 @@ public class main extends javax.swing.JFrame {
     private void jbtNameSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtNameSearchActionPerformed
     {//GEN-HEADEREND:event_jbtNameSearchActionPerformed
         String restaurant_result = FUNCTIONS.INTERFACE_REQUEST("1100","Restaurant_Name", jtfNameToSearch.getText());
+        System.out.println(restaurant_result);
         if(restaurant_result.equals("") || restaurant_result.equals("<br />")){
             JOptionPane.showMessageDialog(this, "Sorry, No Restaurants were found");
         }else{
             search_results results = new search_results(restaurant_result);
             results.setVisible(true);
+            this.dispose();
         }        
-        this.dispose(); 
     }//GEN-LAST:event_jbtNameSearchActionPerformed
 
     private void jbtAddRestaurantNameActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jbtAddRestaurantNameActionPerformed
